@@ -1,0 +1,161 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>jQuery支持电脑手机端网页音乐播放器Jplayer插件</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<div id="example-wrapper">
+    <!-- <ul id="example-size-picker">
+        <li data-size="mobile">Mobile</li>
+        <li data-size="large">Large</li>
+        <li data-size="full">Full Screen</li>
+    </ul> -->
+    <div id="example-outer">
+        <div id="example" data-size="large">
+
+        </div>
+    </div>
+</div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/ttw-clarity-player.js"></script>
+<script src="js/yepnope.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var myPlaylist = [
+			{
+			    mp3:'http://antiserver.kuwo.cn/anti.s?useless=/resource/&format=mp3&rid=MUSIC_23498554&response=res&type=convert_url&',
+			    duration:'3:49',
+			    cover:'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2075108919,1804039142&fm=26&gp=0.jpg',
+			    title:'动物世界',
+			    artist:'薛之谦',
+			    background:'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3976311220,2957863973&fm=26&gp=0.jpg'
+			},
+			{
+			    mp3:'http://antiserver.kuwo.cn/anti.s?useless=/resource/&format=mp3&rid=MUSIC_91310199&response=res&type=convert_url&',
+			    duration:'3:49',
+			    cover:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2036239060,1500073520&fm=26&gp=0.jpg',
+			    title:'平凡天使',
+			    artist:'邓紫棋',
+			    background:'playlist/covers/bg.jpg'
+			},
+			{
+			    mp3:'http://antiserver.kuwo.cn/anti.s?useless=/resource/&format=mp3&rid=MUSIC_90864361&response=res&type=convert_url&',
+			    duration:'3:49',
+			    cover:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=664712985,2736885383&fm=26&gp=0.jpg',
+			    title:'你要相信这不是最后一天',
+			    artist:'华晨宇',
+			    background:'playlist/covers/bg.jpg'
+			},
+            {
+                mp3:'https://www.0dutv.com/upload/dance/20200316/E955D57631DB48AE60AEE75618EF77B9.mp3',
+                duration:'2:21',
+                cover:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2093925862,3166692955&fm=26&gp=0.jpg',
+                title:'归去来兮',
+                artist:'花粥',
+                background:'playlist/covers/bg.jpg'
+            },
+            {
+                mp3:'http://www.0dutv.com/plug/down/up2.php/201452010.mp3',
+                duration:'3:55',
+                cover:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2152627408,1045174372&fm=26&gp=0.jpg',
+                title:'动物世界',
+                artist:'薛之谦',
+                background:'playlist/covers/bg.jpg'
+            },
+            {
+                mp3:'http://www.0dutv.com/plug/down/up2.php/5106429.mp3',
+                duration:'3:55',
+                cover:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1062765952,3931016210&fm=26&gp=0.jpg',
+                title:'丑八怪',
+                artist:'薛之谦',
+                background:'playlist/covers/bg.jpg'
+            },
+            {
+                mp3:'https://www.0dutv.com/upload/dance/86BEC5B3B012EF762CDA988BCD1C5957.mp3',
+                duration:'3:49',
+                cover:'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=229315238,2170353884&fm=26&gp=0.jpg',
+                title:'一万次悲伤',
+                artist:'徐歌阳',
+                background:'playlist/covers/bg.jpg'
+            },
+			{
+			    mp3:'https://www.0dutv.com/upload/dance/20200307/AE2B8E65F2CE45DDD7ED8371244AD76E.mp3',
+			    duration:'3:49',
+			    cover:'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=467517190,3355197781&fm=11&gp=0.jpg',
+			    title:'外婆',
+			    artist:'张艺兴',
+			    background:'playlist/covers/bg.jpg'
+			},
+			{
+			    mp3:'http://www.0dutv.com/plug/down/up2.php/106732553.mp3',
+			    duration:'3:49',
+			    cover:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1045612597,1840935767&fm=26&gp=0.jpg',
+			    title:'寂寞来了怎么办',
+			    artist:'吴克群',
+			    background:'playlist/covers/bg.jpg'
+			},
+			{
+			    mp3:'http://www.0dutv.com/plug/down/up2.php/1833619.mp3',
+			    duration:'3:49',
+			    cover:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1088286629,2731825653&fm=26&gp=0.jpg',
+			    title:'心如刀割',
+			    artist:'张学友',
+			    background:'playlist/covers/bg.jpg'
+			},
+			{
+			    mp3:'http://antiserver.kuwo.cn/anti.s?useless=/resource/&format=mp3&rid=MUSIC_7149583&response=res&type=convert_url&',
+			    duration:'3:49',
+			    cover:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1123203663,2616993317&fm=11&gp=0.jpg',
+			    title:'告白气球',
+			    artist:'周杰伦',
+			    background:'playlist/covers/bg.jpg'
+			},
+			{
+			    mp3:'http://antiserver.kuwo.cn/anti.s?useless=/resource/&format=mp3&rid=MUSIC_73391335&response=res&type=convert_url&',
+			    duration:'3:49',
+			    cover:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584380614644&di=9d11565cd594e1427e43f8226629e0af&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201801%2F01%2F20180101211727_4LEJk.thumb.224_0.gif',
+			    title:'嚣张',
+			    artist:'en',
+			    background:'playlist/covers/bg.jpg'
+			},
+			{
+			    mp3:'http://antiserver.kuwo.cn/anti.s?useless=/resource/&format=mp3&rid=MUSIC_28501751&response=res&type=convert_url&',
+			    duration:'3:49',
+			    cover:'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2881872916,1134591073&fm=15&gp=0.jpg',
+			    title:'借(Live)',
+			    artist:'毛不易',
+			    background:'playlist/covers/bg.jpg'
+			},
+			{
+			    mp3:'http://antiserver.kuwo.cn/anti.s?useless=/resource/&format=mp3&rid=MUSIC_877978&response=res&type=convert_url&',
+			    duration:'3:49',
+			    cover:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2260912102,2057850613&fm=15&gp=0.jpg',
+			    title:'处处吻',
+			    artist:'杨千嬅',
+			    background:'playlist/covers/bg.jpg'
+			}
+        ];
+		
+        var clarity = $('#example').ttwClarityPlayer(myPlaylist,{
+				jPlayer:{
+					supplied:'mp3',
+					errorAlerts:true,	
+					autoPlay:true,				
+					warningAlerts:true,
+					consoleAlerts:true
+				}
+			});
+        
+		$('#example-size-picker').on('click', 'li', function(){
+            $('#example').attr('data-size', $(this).data('size'));
+            clarity.manageLayout();
+        });
+    });
+</script>
+</body>
+</html>
