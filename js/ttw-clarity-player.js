@@ -1917,7 +1917,7 @@ var ClarityTemplates = ClarityTemplates || false;
         }
 
         function showLoadingScreen() {
-            $loading = $('<div class="blvd-loading"><div>Loading..(sc.chinaz.com)</div></div>').height($self.outerHeight());
+            $loading = $('<div class="blvd-loading"><div>Loading..</div></div>').height($self.outerHeight());
 
             $self.append($loading);
         }
